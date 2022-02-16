@@ -1,0 +1,51 @@
+In-memory Search engine
+
+Your organization has started a new tech blog with interesting tech stories and you’re responsible for designing and implementing an in-memory search engine, supporting the search functionality on the blog content.
+It should be possible to create a dataset in the search engine.
+It should be possible to insert documents into a given dataset. Each document is simply a piece of text.
+It should be possible to search through documents for a search pattern in a given dataset
+Examples
+--------------
+Search term: apple
+
+Doc1: apple is a fruit
+Doc2: apple apple come on.
+Doc3: oranges are sour
+Doc4: apple is sweet
+Doc5: apple is sweet
+
+
+Search results (number of occurrences of search term ranker)
+[Doc2, Doc1, Doc4] or [Doc2, Doc4, Doc1]
+
+Search results (recency ranker)
+Doc 4, Doc2, Doc1 (creation)
+
+
+1. can have duplicate documents in a dataset/org
+2. would be mostly read heavy
+3. based on create timestamp
+4. string match ()
+
+
+Methods:
+1. createDataset(dataset_name)
+2. createDocument(dataset_id, document_details)
+3. searchDocument(search_string)
+
+class Organisation:
+    datasets: Dict[str: DataSet]
+
+class DataSet:
+    documents = {document_id: Document}
+    idx =  {
+    'apple' : [{document_id, creation_date, num_}, ],
+
+    }
+
+I is a apple
+
+class Document:
+    document_id :
+    document_content
+    created_at : timestamp
